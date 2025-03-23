@@ -80,10 +80,16 @@ async function renderJoinClubForm(req, res) {
     res.render("join-club-form")
 }
 
+
 async function joinTheClub(req, res) {
     if (parseInt(req.body.code) === 19) {
         await db.updateStatus();
         res.redirect("/");
+    } else {
+        const error = "Wrong answer, try again";
+        res.render("join-club-form", {
+            error: error
+        })
     }
 }
 

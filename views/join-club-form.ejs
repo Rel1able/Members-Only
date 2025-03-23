@@ -13,6 +13,11 @@
         <input id="code" name="code" type="password" />
         <button>Join</button>
     </form>
+    <% if(locals.error){%>
+        <p>
+            <%= error%>
+        </p>
+        <%}%>
 </body>
 
 </html>
