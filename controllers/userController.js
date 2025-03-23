@@ -4,7 +4,10 @@ const { body, validationResult } = require("express-validator");
 
 
 async function renderMainPage(req, res) {
-    res.render("index")
+    console.log(req.user);
+    res.render("index", {
+        user: req.user
+    })
 }
 
 
@@ -52,15 +55,30 @@ async function createUser(req, res, next) {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         await db.createUser( req.body.username, hashedPassword, req.body.firstName, req.body.lastName, "none")
-        res.redirect("/");
+        res.redirect("/log-in");
     }catch(err){
         return next(err);
     }
+}
+
+async function renderLogInForm(req, res) {
+    res.render("log-in-form");
+}
+
+async function handleLogOut(req, res, next) {
+    req.logout((err) => {
+        if (err) {
+            return next(err)
+        }
+        res.redirect("/");
+    });
 }
 
 module.exports = {
     renderMainPage,
     renderSignUpForm,
     createUser,
-    validateSignUpForm
+    validateSignUpForm,
+    renderLogInForm,
+    handleLogOut,
 }

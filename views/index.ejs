@@ -8,16 +8,21 @@
 </head>
 
 <body>
-    <%- include("header")%>
-        <main>
-            <p>Cool content</p>
-            <p>Cool content</p>
-            <p>Cool content</p>
-            <p>Cool content</p>
-            <p>Cool content</p>
-            <p>Cool content</p>
-            <p>Cool content</p>
-        </main>
+    <% if(locals.user){%>
+        <h1>Hello <%= user.username%>
+        </h1>
+        <%}%>
+            <%- include("header")%>
+                <main>
+                    <p>Cool content</p>
+                    <p>Cool content</p>
+                    <p>Cool content</p>
+                    <p>Cool content</p>
+                    <p>Cool content</p>
+                    <p>Cool content</p>
+                    <p>Cool content</p>
+                </main>
+                <a href="/log-out">Log out</a>
 </body>
 
 </html>
