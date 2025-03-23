@@ -14,6 +14,9 @@
         <input type="text" id="msg" name="msg" />
         <button>Create</button>
     </form>
+    <% if(locals.errors){%>
+        <%- include("partials/errors.ejs")%>
+            <%}%>
 </body>
 
 </html>
