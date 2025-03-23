@@ -4,9 +4,13 @@ const { body, validationResult } = require("express-validator");
 
 
 async function renderMainPage(req, res) {
-    console.log(req.user);
+
+    const messages = await db.getMessageData();
+    console.log("MESSAGES", messages);
     res.render("index", {
-        user: req.user
+        user: req.user,
+        messages: messages,
+
     })
 }
 

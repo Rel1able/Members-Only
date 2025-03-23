@@ -7,6 +7,7 @@ const pgSession = require("connect-pg-simple")(session);
 const pool = require("./db/pool");
 const db = require("./db/queries");
 const userRouter = require("./routes/userRouter");
+const messagesRouter = require("./routes/messagesRouter");
 require("dotenv").config();
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(userRouter);
+app.use(messagesRouter);
 passport.use(MyLocalStrategy);
 
 passport.serializeUser((user, done) => {

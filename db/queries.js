@@ -18,9 +18,29 @@ async function selectUserById(id) {
     return rows;
 }
 
+async function createMessage(message, userId) {
+    const date = new Date();
+    const { rows } = await pool.query("INSERT INTO messages (message, userid, created) VALUES ($1, $2, $3)", [
+        message,
+        userId,
+        date
+    
+    ])
+    return rows
+}
+
+async function getMessageData() {
+    const { rows } = await pool.query("SELECT messages.message, TO_CHAR(messages.created, 'dd/mm/yyyy'), users.username FROM messages INNER JOIN users ON messages.userId = users.id");
+    return rows;
+
+}
+
+
 module.exports = {
     createUser,
     selectUserByName,
-    selectUserById
+    selectUserById,
+    createMessage,
+    getMessageData
     
 }

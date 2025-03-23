@@ -11,16 +11,17 @@
     <% if(locals.user){%>
         <h1>Hello <%= user.username%>
         </h1>
+        <a href="/createMessage">Create new message</a>
         <%}%>
             <%- include("header")%>
                 <main>
-                    <p>Cool content</p>
-                    <p>Cool content</p>
-                    <p>Cool content</p>
-                    <p>Cool content</p>
-                    <p>Cool content</p>
-                    <p>Cool content</p>
-                    <p>Cool content</p>
+                    <% messages.map((msg)=> {%>
+                        <li>
+                            <%= msg.username%>
+                                <%= msg.message%>
+                                    <%= msg.to_char%>
+                        </li>
+                        <%})%>
                 </main>
                 <a href="/log-out">Log out</a>
 </body>

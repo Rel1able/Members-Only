@@ -11,7 +11,14 @@ const SQL = `CREATE TABLE IF NOT EXISTS users(
     status VARCHAR(255)
 );
 
-CREATE TABLE "session" (
+CREATE TABLE IF NOT EXISTS messages(
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    message VARCHAR(255),
+    userId INTEGER,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE  "session" (
   "sid" varchar NOT NULL COLLATE "default",
   "sess" json NOT NULL,
   "expire" timestamp(6) NOT NULL
