@@ -4,9 +4,8 @@ const { body, validationResult } = require("express-validator");
 
 
 async function renderMainPage(req, res) {
-
+    console.log(req.user);
     const messages = await db.getMessageData();
-    console.log("MESSAGES", messages);
     res.render("index", {
         user: req.user,
         messages: messages,
@@ -29,7 +28,6 @@ const validateSignUpForm = [
     body("password")
         .isLength({ min: 5 }).withMessage("Password must be at least 5 characters long"),
     body("confPassword").custom((value, { req }) => {
-        console.log(req.body);
         if (!req.body.password) {
             throw new Error("Password field is required");
         }
@@ -78,6 +76,17 @@ async function handleLogOut(req, res, next) {
     });
 }
 
+async function renderJoinClubForm(req, res) {
+    res.render("join-club-form")
+}
+
+async function joinTheClub(req, res) {
+    if (parseInt(req.body.code) === 19) {
+        await db.updateStatus();
+        res.redirect("/");
+    }
+}
+
 module.exports = {
     renderMainPage,
     renderSignUpForm,
@@ -85,4 +94,6 @@ module.exports = {
     validateSignUpForm,
     renderLogInForm,
     handleLogOut,
+    renderJoinClubForm,
+    joinTheClub
 }

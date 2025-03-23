@@ -17,9 +17,16 @@
                 <main>
                     <% messages.map((msg)=> {%>
                         <li>
-                            <%= msg.username%>
-                                <%= msg.message%>
-                                    <%= msg.to_char%>
+                            <% if(locals.user.status !=="none" ){%>
+                                <%= msg.username%>
+                                    <%= msg.message%>
+                                        <%= msg.to_char%>
+                                            <%}else {%>
+                                                <p>******</p>
+                                                <%= msg.message%>
+                                                    <p>**/**/****</p>
+                                                    <%}%>
+
                         </li>
                         <%})%>
                 </main>

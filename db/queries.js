@@ -32,7 +32,10 @@ async function createMessage(message, userId) {
 async function getMessageData() {
     const { rows } = await pool.query("SELECT messages.message, TO_CHAR(messages.created, 'dd/mm/yyyy'), users.username FROM messages INNER JOIN users ON messages.userId = users.id");
     return rows;
+}
 
+async function updateStatus() {
+    await pool.query("UPDATE users SET status = $1", ["Club member"])
 }
 
 
@@ -41,6 +44,7 @@ module.exports = {
     selectUserByName,
     selectUserById,
     createMessage,
-    getMessageData
+    getMessageData,
+    updateStatus
     
 }
