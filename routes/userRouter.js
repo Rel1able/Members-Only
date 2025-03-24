@@ -17,6 +17,9 @@ userRouter.post("/log-in", passport.authenticate("local", {
 userRouter.get("/join-club",userController.renderJoinClubForm)
 userRouter.post("/join-club", userController.joinTheClub)
 
+userRouter.get("/become-admin", userController.renderBecomeAdminForm);
+userRouter.post("/become-admin", userController.giveAdminStatus)
+
 userRouter.get("/log-out",userController.handleLogOut )
 
 module.exports = userRouter;

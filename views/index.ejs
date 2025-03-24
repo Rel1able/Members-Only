@@ -17,7 +17,7 @@
                 <main>
                     <% messages.map((msg)=> {%>
                         <li>
-                            <% if(locals.user.status !=="none" ){%>
+                            <% if(locals.user && locals.user.status !=="none" ){%>
                                 <%= msg.username%>
                                     <%= msg.message%>
                                         <%= msg.to_char%>
@@ -26,7 +26,10 @@
                                                 <%= msg.message%>
                                                     <p>**/**/****</p>
                                                     <%}%>
-
+                                                        <% if(locals.user && locals.user.status==="Admin" ){%>
+                                                            <a href="#">Delete
+                                                                message</a>
+                                                            <%}%>
                         </li>
                         <%})%>
                 </main>

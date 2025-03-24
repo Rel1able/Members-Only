@@ -93,6 +93,22 @@ async function joinTheClub(req, res) {
     }
 }
 
+async function renderBecomeAdminForm(req, res) {
+    res.render("become-admin-form");   
+}
+
+async function giveAdminStatus(req, res) {
+    if (req.body.adminCode === "firstadmin") {
+        await db.giveAdminStatus();
+        res.redirect("/");
+    } else {
+        const error = "Wrong code, try again!";
+        res.render("become-admin-form", {
+            error: error
+        })
+    }
+}
+
 module.exports = {
     renderMainPage,
     renderSignUpForm,
@@ -101,5 +117,7 @@ module.exports = {
     renderLogInForm,
     handleLogOut,
     renderJoinClubForm,
-    joinTheClub
+    joinTheClub,
+    renderBecomeAdminForm,
+    giveAdminStatus
 }

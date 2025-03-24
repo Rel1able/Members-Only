@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/become-admin" method="POST">
+        <label for="adminCode">Enter the admin code</label>
+        <input type="text" id="adminCode" name="adminCode" />
+        <button type="submit">Become Admin</button>
+    </form>
+    <% if(locals.error){%>
+        <p>
+            <%= error%>
+        </p>
+        <%}%>
+</body>
+
+</html>

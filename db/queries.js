@@ -38,6 +38,9 @@ async function updateStatus() {
     await pool.query("UPDATE users SET status = $1", ["Club member"])
 }
 
+async function giveAdminStatus() {
+    await pool.query("UPDATE users SET status = $1", ["Admin"]);
+}
 
 module.exports = {
     createUser,
@@ -45,6 +48,7 @@ module.exports = {
     selectUserById,
     createMessage,
     getMessageData,
-    updateStatus
+    updateStatus,
+    giveAdminStatus
     
 }
