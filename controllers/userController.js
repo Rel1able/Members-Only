@@ -1,6 +1,7 @@
 const db = require("../db/queries");
 const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
+require("dotenv").config();
 
 
 async function renderMainPage(req, res) {
@@ -83,7 +84,7 @@ async function renderJoinClubForm(req, res) {
 
 
 async function joinTheClub(req, res) {
-    if (parseInt(req.body.code) === 19) {
+    if (parseInt(req.body.code) === parseInt(process.env.JOIN_CLUB_ANSWER)) {
         await db.updateStatus();
         res.redirect("/");
     } else {
@@ -99,7 +100,7 @@ async function renderBecomeAdminForm(req, res) {
 }
 
 async function giveAdminStatus(req, res) {
-    if (req.body.adminCode === "firstadmin") {
+    if (req.body.adminCode === process.env.ADMIN_CODE) {
         await db.giveAdminStatus();
         res.redirect("/");
     } else {

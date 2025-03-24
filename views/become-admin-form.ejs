@@ -8,16 +8,17 @@
 </head>
 
 <body>
-    <form action="/become-admin" method="POST">
-        <label for="adminCode">Enter the admin code</label>
-        <input type="text" id="adminCode" name="adminCode" />
-        <button type="submit">Become Admin</button>
-    </form>
-    <% if(locals.error){%>
-        <p>
-            <%= error%>
-        </p>
-        <%}%>
+    <%- include("header")%>
+        <form action="/become-admin" method="POST">
+            <label for="adminCode">Enter the admin code</label>
+            <input type="text" id="adminCode" name="adminCode" />
+            <button type="submit">Become Admin</button>
+        </form>
+        <% if(locals.error){%>
+            <p>
+                <%= error%>
+            </p>
+            <%}%>
 </body>
 
 </html>

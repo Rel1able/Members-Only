@@ -8,16 +8,17 @@
 </head>
 
 <body>
-    <form action="/join-club" method="POST">
-        <label for="code">What is 2 + 17?</label>
-        <input id="code" name="code" type="password" />
-        <button>Join</button>
-    </form>
-    <% if(locals.error){%>
-        <p>
-            <%= error%>
-        </p>
-        <%}%>
+    <%- include("header") %>
+        <form action="/join-club" method="POST">
+            <label for="code">What is 2 + 17?</label>
+            <input id="code" name="code" type="password" />
+            <button>Join</button>
+        </form>
+        <% if(locals.error){%>
+            <p>
+                <%= error%>
+            </p>
+            <%}%>
 </body>
 
 </html>
