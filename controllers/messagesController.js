@@ -24,8 +24,16 @@ async function createMessage(req, res) {
     res.redirect("/");
 }
 
+async function deleteMessage(req, res) {
+    const messageId = req.params.messageId;
+    console.log("MEssageid", messageId);
+    await db.deleteMessage(messageId);
+    res.redirect("/");
+}
+
 module.exports = {
     renderCreateMessagesForm,
     createMessage,
-    validateCreateMessageForm
+    validateCreateMessageForm,
+    deleteMessage
 }

@@ -30,7 +30,7 @@ async function createMessage(message, userId) {
 }
 
 async function getMessageData() {
-    const { rows } = await pool.query("SELECT messages.message, TO_CHAR(messages.created, 'dd/mm/yyyy'), users.username FROM messages INNER JOIN users ON messages.userId = users.id");
+    const { rows } = await pool.query("SELECT messages.id, messages.message, TO_CHAR(messages.created, 'dd/mm/yyyy'), users.username FROM messages INNER JOIN users ON messages.userId = users.id");
     return rows;
 }
 
@@ -42,6 +42,10 @@ async function giveAdminStatus() {
     await pool.query("UPDATE users SET status = $1", ["Admin"]);
 }
 
+async function deleteMessage(messageId) {
+    await pool.query("DELETE FROM messages WHERE messages.id = $1", [messageId])
+}
+
 module.exports = {
     createUser,
     selectUserByName,
@@ -49,6 +53,7 @@ module.exports = {
     createMessage,
     getMessageData,
     updateStatus,
-    giveAdminStatus
+    giveAdminStatus,
+    deleteMessage
     
 }

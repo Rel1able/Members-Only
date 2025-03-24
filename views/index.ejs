@@ -27,8 +27,11 @@
                                                     <p>**/**/****</p>
                                                     <%}%>
                                                         <% if(locals.user && locals.user.status==="Admin" ){%>
-                                                            <a href="#">Delete
-                                                                message</a>
+                                                            <form action="/delete/<%=msg.id%>" method="POST">
+                                                                <button
+                                                                    onClick="return confirm('Are you sure you want to delete this message?')"
+                                                                    type="submit">Delete</button>
+                                                            </form>
                                                             <%}%>
                         </li>
                         <%})%>
