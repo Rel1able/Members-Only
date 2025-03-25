@@ -11,7 +11,7 @@ userRouter.post("/sign-up",userController.validateSignUpForm, userController.cre
 userRouter.get("/log-in", userController.renderLogInForm);
 userRouter.post("/log-in", passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/sign-up"
+    failureRedirect: "/log-in"
 }))
 
 userRouter.get("/join-club",userController.renderJoinClubForm)

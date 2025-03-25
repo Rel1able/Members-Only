@@ -11,7 +11,7 @@
     <%- include("header")%>
         <form action="/become-admin" method="POST">
             <label for="adminCode">Enter the admin code</label>
-            <input type="text" id="adminCode" name="adminCode" />
+            <input type="text" id="adminCode" name="adminCode" required/>
             <button type="submit">Become Admin</button>
         </form>
         <% if(locals.error){%>

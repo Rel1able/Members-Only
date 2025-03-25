@@ -7,7 +7,6 @@ require("dotenv").config();
 async function renderMainPage(req, res) {
     
     const messages = await db.getMessageData();
-    console.log(messages);
     res.render("index", {
         user: req.user,
         messages: messages,

@@ -8,14 +8,15 @@
 </head>
 
 <body>
+    <%- include("header")%>
     <h1>please Log in</h1>
     <form action="/log-in" method="POST">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" />
+        <input type="text" id="username" name="username" required />
         <label for="password">Password</label>
-        <input id="password" name="password" type="password" />
+        <input id="password" name="password" type="password" required/>
         <label for="confPassword">Confirm Password</label>
-        <input type="password" id="confPassword" name="confPassword" />
+        <input type="password" id="confPassword" name="confPassword" required/>
         <button type="submit">Log in</button>
     </form>
 </body>

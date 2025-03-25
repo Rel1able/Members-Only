@@ -2,7 +2,6 @@ const db = require("../db/queries");
 const { body, validationResult } = require("express-validator");
 
 async function renderCreateMessagesForm(req, res) {
-    console.log("User", req.user);
     res.render("create-message-form")
 }
 
@@ -14,7 +13,6 @@ const validateCreateMessageForm = [
 
 async function createMessage(req, res) {
     const errors = validationResult(req);
-    console.log(errors);
     if (!errors.isEmpty()) {
         return res.status(400).render("create-message-form", {
              errors: errors.array(),
@@ -26,7 +24,6 @@ async function createMessage(req, res) {
 
 async function deleteMessage(req, res) {
     const messageId = req.params.messageId;
-    console.log("MEssageid", messageId);
     await db.deleteMessage(messageId);
     res.redirect("/");
 }

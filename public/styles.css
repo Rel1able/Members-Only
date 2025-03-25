@@ -1,0 +1,45 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.header-upper{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dropdown{
+    position: relative;
+    top: 2rem;
+    
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    border: 2px solid;
+    flex-direction: column;
+
+
+}
+
+.show{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

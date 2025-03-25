@@ -5,36 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Members only</title>
+    <link reL="stylesheet" hreF="styles.css"/>
+    <script src="dropdown.js" defer></script>
 </head>
 
 <body>
-    <% if(locals.user){%>
-        <h1>Hello <%= user.username%>
-        </h1>
-        <a href="/createMessage">Create new message</a>
-        <%}%>
             <%- include("header")%>
+            <% if(currentUser){%>
+                <a href="/createMessage">Create new message</a>
+            <%}%>
                 <main>
                     <% messages.map((msg)=> {%>
-                        <li>
-                            <% if(locals.user && locals.user.status !=="none" ){%>
-                                <%= msg.username%>
-                                    <%= msg.message%>
-                                        <%= msg.to_char%>
-                                            <%}else {%>
-                                                <p>******</p>
-                                                <%= msg.message%>
-                                                    <p>**/**/****</p>
-                                                    <%}%>
-                                                        <% if(locals.user && locals.user.status==="Admin" ){%>
-                                                            <form action="/delete/<%=msg.id%>" method="POST">
-                                                                <button
-                                                                    onClick="return confirm('Are you sure you want to delete this message?')"
-                                                                    type="submit">Delete</button>
-                                                            </form>
-                                                            <%}%>
-                        </li>
-                        <%})%>
+                    <li>
+                        <% if(locals.user && locals.user.status !=="none" ){%>
+                            <%= msg.username%>
+                            <%= msg.message%>
+                            <%= msg.to_char%>
+                        <%}else {%>
+                            <p>******</p>
+                            <%= msg.message%>
+                            <p>**/**/****</p>
+                        <%}%>
+                        <% if(locals.user && locals.user.status==="Admin" ){%>
+                            <form action="/delete/<%=msg.id%>" method="POST">
+                            <button onClick="return confirm('Are you sure you want to delete this message?')"type="submit">
+                                Delete
+                            </button>
+                        </form><%}%>
+                    </li>
+                <%})%>
                 </main>
                 <a href="/log-out">Log out</a>
 </body>

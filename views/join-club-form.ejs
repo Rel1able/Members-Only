@@ -11,7 +11,7 @@
     <%- include("header") %>
         <form action="/join-club" method="POST">
             <label for="code">What is 2 + 17?</label>
-            <input id="code" name="code" type="password" />
+            <input id="code" name="code" type="password" required/>
             <button>Join</button>
         </form>
         <% if(locals.error){%>

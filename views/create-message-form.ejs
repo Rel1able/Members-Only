@@ -8,10 +8,11 @@
 </head>
 
 <body>
+    <%- include("header")%>
     <h1>Create message</h1>
     <form action="/createMessage" method="POST">
         <label for="msg">Enter your message:</label>
-        <input type="text" id="msg" name="msg" />
+        <input type="text" id="msg" name="msg" required/>
         <button>Create</button>
     </form>
     <% if(locals.errors){%>
