@@ -8,9 +8,10 @@
                 </span>
                
                 <div class="dropdown-content">
-                    <a href="/">Homepage</a>
-                    <a href="/join-club">Join the club</a>
-                    <a href="/become-admin">Become an admin</a>
+                    <a class="btn dropdown-btn" href="/">Homepage</a>
+                    <a class="btn dropdown-btn" href="/join-club">Join the club</a>
+                    <a class="btn dropdown-btn" href="/become-admin">Become an admin</a>
+                    <a onClick="return confirm('Are you sure you want to log out?')" class="btn dropdown-btn" href="/log-out">Log out</a>
                 </div>
             </div>
         </div>
@@ -19,8 +20,8 @@
         
     <%}else{%>
         <h1>Members Only</h1>
-        <a href="/">Homepage</a>
-        <a href="/sign-up">Sign up</a>
-        <a href="/log-in">Login</a>
+        <a class="btn" href="/">Homepage</a>
+        <a  class="btn" href="/sign-up">Sign up</a>
+        <a  class="btn" href="/log-in">Login</a>
     <%}%>
 </header>

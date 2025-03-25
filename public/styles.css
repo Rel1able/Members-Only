@@ -3,6 +3,7 @@ body{
     flex-direction: column;
     height: 100vh;
     box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .header{
@@ -28,9 +29,11 @@ body{
 .dropdown-content{
     display: none;
     position: absolute;
-    min-width: 160px;
+    gap: 0.5rem;
     border: 2px solid;
     flex-direction: column;
+    
+    
 
 
 }
@@ -42,4 +45,28 @@ body{
 a{
     text-decoration: none;
     color: black;
+}
+
+.btn{
+    border: none;
+    background-color: moccasin;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    width: 10rem;
+    text-align: center;
+}
+
+.dropdown-btn{
+    text-align: start;
+    width: 8rem;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+.msg{
+    border: 2px solid;
+    border-radius: 2rem;
+    padding: 1rem;
 }

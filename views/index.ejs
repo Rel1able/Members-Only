@@ -12,11 +12,11 @@
 <body>
             <%- include("header")%>
             <% if(currentUser){%>
-                <a href="/createMessage">Create new message</a>
+                <a class="btn" href="/createMessage">Create new message</a>
             <%}%>
                 <main>
                     <% messages.map((msg)=> {%>
-                    <li>
+                    <div class="msg">
                         <% if(locals.user && locals.user.status !=="none" ){%>
                             <%= msg.username%>
                             <%= msg.message%>
@@ -28,14 +28,14 @@
                         <%}%>
                         <% if(locals.user && locals.user.status==="Admin" ){%>
                             <form action="/delete/<%=msg.id%>" method="POST">
-                            <button onClick="return confirm('Are you sure you want to delete this message?')"type="submit">
+                            <button class="btn" onClick="return confirm('Are you sure you want to delete this message?')"type="submit">
                                 Delete
                             </button>
                         </form><%}%>
-                    </li>
+                    </div>
                 <%})%>
                 </main>
-                <a href="/log-out">Log out</a>
+
 </body>
 
 </html>
