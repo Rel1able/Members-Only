@@ -8,7 +8,7 @@ async function renderCreateMessagesForm(req, res) {
 const validateCreateMessageForm = [
     body("msg")
         .trim()
-        .isLength({min: 10}).withMessage("Message must be at least 10 characters long")
+        .isLength({min: 10, max: 100}).withMessage("Message must be between 10 and 100 characters long")
 ]
 
 async function createMessage(req, res) {

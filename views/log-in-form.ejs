@@ -11,15 +11,25 @@
 
 <body>
     <%- include("header")%>
-    <h1>please Log in</h1>
-    <form action="/log-in" method="POST">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required />
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required/>
-        <label for="confPassword">Confirm Password</label>
-        <input type="password" id="confPassword" name="confPassword" required/>
-        <button type="submit">Log in</button>
+   
+    <form class="form" action="/log-in" method="POST">
+        <h1>please Log in</h1>
+        <div class="form-div">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-div">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required />
+        </div>
+        <div class="form-div">
+            <label for="confPassword">Confirm Password</label>
+            <input type="password" id="confPassword" name="confPassword" required />
+        </div>
+        
+       
+      
+        <button class="btn" type="submit">Log in</button>
     </form>
 </body>
 

@@ -11,11 +11,15 @@
 
 <body>
     <%- include("header")%>
-    <h1>Create message</h1>
-    <form action="/createMessage" method="POST">
-        <label for="msg">Enter your message:</label>
-        <input type="text" id="msg" name="msg" required/>
-        <button>Create</button>
+    
+    <form class="form" action="/createMessage" method="POST">
+        <h1 class="title">Create message</h1>
+        <div>
+            <label for="msg">Enter your message:</label>
+            <input type="text" id="msg" name="msg" required/>
+        </div>
+       
+        <button class="btn">Create</button>
     </form>
     <% if(locals.errors){%>
         <%- include("partials/errors.ejs")%>

@@ -11,20 +11,26 @@
 
 <body>
             <%- include("header")%>
-            <% if(currentUser){%>
-                <a class="btn" href="/createMessage">Create new message</a>
-            <%}%>
+            <div class="under-header-container">
+                <% if(currentUser){%>
+                    <a class="btn createMessage-btn" href="/createMessage">Create new message</a>
+                    <%}%>
+            </div>
+           
                 <main>
                     <% messages.map((msg)=> {%>
-                    <div class="msg">
+                    <div class="msg-card">
                         <% if(locals.user && locals.user.status !=="none" ){%>
-                            <%= msg.username%>
-                            <%= msg.message%>
-                            <%= msg.to_char%>
+                            <h3 class="author"><%= msg.username%></h3>
+                            <p class="msg"><%= msg.message%></p>
+                            <h4 class="date"><%= msg.to_char%></h4>
+                            
                         <%}else {%>
-                            <p>******</p>
-                            <%= msg.message%>
-                            <p>**/**/****</p>
+                            <h3 class="author">******</h3>
+                            <p class="msg">
+                                <%= msg.message%>
+                            </p>
+                            <h4 class="date">**/**/****</h4>
                         <%}%>
                         <% if(locals.user && locals.user.status==="Admin" ){%>
                             <form action="/delete/<%=msg.id%>" method="POST">

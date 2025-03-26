@@ -1,7 +1,7 @@
 <header class="header">
     <% if(currentUser){%>
         <div class="header-upper">
-            <h1>Members Only</h1>
+            <a class="main-title" href="/">Members Only</a>
             <div class="dropdown">
                 <span class="dropdown-btn">
                     <%=currentUser.username%>
@@ -19,9 +19,11 @@
         
         
     <%}else{%>
-        <h1>Members Only</h1>
-        <a class="btn" href="/">Homepage</a>
-        <a  class="btn" href="/sign-up">Sign up</a>
-        <a  class="btn" href="/log-in">Login</a>
+        <a class="main-title" href="/">Members Only</a>
+        <div class="links">
+                    <a class="btn" href="/sign-up">Sign up</a>
+                    <a class="btn" href="/log-in">Login</a>
+        </div>
+
     <%}%>
 </header>

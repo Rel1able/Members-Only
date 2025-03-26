@@ -11,13 +11,13 @@
 
 <body>
     <%- include("header") %>
-        <form action="/join-club" method="POST">
+        <form class="form" action="/join-club" method="POST">
             <label for="code">What is 2 + 17?</label>
             <input id="code" name="code" type="password" required/>
             <button class="btn">Join</button>
         </form>
         <% if(locals.error){%>
-            <p>
+            <p class="error-msg">
                 <%= error%>
             </p>
             <%}%>
