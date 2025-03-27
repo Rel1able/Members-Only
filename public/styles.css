@@ -1,3 +1,9 @@
+:root{
+    --dark-purple: rgb(64, 5, 165);
+    --light-purple: rgb(80, 8, 205);
+    --additional-color: rgb(178, 176, 176);
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -53,7 +59,7 @@ a{
 
 .btn{
     border: none;
-    background-color: rgb(64, 5, 165);
+    background-color: var(--dark-purple);
     color: white;
     font-weight: bold;
     border-radius: 2rem;
@@ -65,7 +71,7 @@ a{
 }
 
 .btn:hover{
-    background-color: rgb(80, 8, 205);;
+    background-color: var(--light-purple);
 }
 
 .dropdown-btn{
@@ -78,7 +84,7 @@ ul li{
 }
 
 .msg-card{
-    border: 2px solid rgb(148, 148, 148);
+    border: 2px solid var(--additional-color);
     border-radius: 2rem;
     padding: 1rem;
     display: flex;
@@ -95,7 +101,7 @@ ul li{
 }
 
 .form{
-    border: 2px solid rgb(211, 211, 211); 
+    border: 2px solid var(--additional-color); 
     width: 20rem;
     margin: auto;
     padding: 2rem;
@@ -110,6 +116,7 @@ ul li{
 }
 input{
     border-radius: 2rem;
+    border: 2px solid var(--additional-color);
 }
 
 input:focus{
@@ -131,7 +138,7 @@ input:focus{
 }
 
 .special-msg{
-    background-color:rgb(80, 8, 205);
+    background-color:var(--light-purple);
     color: white;
     padding: 2rem;
     font-size: 1.5rem;
