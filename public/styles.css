@@ -125,6 +125,22 @@ input:focus{
     padding: 2rem;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.special-msg{
+    background-color:rgb(80, 8, 205);
+    color: white;
+    padding: 2rem;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+}
+
+.special-msg a{
+    color: white;
+    text-decoration: underline;
 }
 
 .error-msg{

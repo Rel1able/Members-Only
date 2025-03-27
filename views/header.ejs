@@ -10,7 +10,10 @@
                 <div class="dropdown-content">
                     <a class="btn dropdown-btn" href="/">Homepage</a>
                     <a class="btn dropdown-btn" href="/join-club">Join the club</a>
-                    <a class="btn dropdown-btn" href="/become-admin">Become an admin</a>
+                    <% if(currentUser.status !== "none"){%>
+                         <a class="btn dropdown-btn" href="/become-admin">Become an admin</a>
+                    <%}%>
+                   
                     <a onClick="return confirm('Are you sure you want to log out?')" class="btn dropdown-btn" href="/log-out">Log out</a>
                 </div>
             </div>
@@ -20,10 +23,7 @@
         
     <%}else{%>
         <a class="main-title" href="/">Members Only</a>
-        <div class="links">
-                    <a class="btn" href="/sign-up">Sign up</a>
-                    <a class="btn" href="/log-in">Login</a>
-        </div>
+
 
     <%}%>
 </header>
