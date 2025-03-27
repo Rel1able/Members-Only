@@ -3,14 +3,17 @@
         <div class="header-upper">
             <a class="main-title" href="/">Members Only</a>
             <div class="dropdown">
-                <span class="dropdown-btn">
+                <span class="dropdown-user dropdown-btn">
                     <%=currentUser.username%>
                 </span>
                
                 <div class="dropdown-content">
                     <a class="btn dropdown-btn" href="/">Homepage</a>
-                    <a class="btn dropdown-btn" href="/join-club">Join the club</a>
-                    <% if(currentUser.status !== "none"){%>
+                    <% if(currentUser.status !== "Admin"){%>
+                        <a class="btn dropdown-btn" href="/join-club">Join the club</a>
+                    <%}%>
+                    
+                    <% if(currentUser.status !== "none" && currentUser.status !== "Admin"){%>
                          <a class="btn dropdown-btn" href="/become-admin">Become an admin</a>
                     <%}%>
                    

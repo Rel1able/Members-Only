@@ -19,7 +19,7 @@
                
                 <% if(currentUser && currentUser.status === "none"){%>
                     <div class="special-msg">
-                        <a href="/join-club">Join the club</a> if you want to see the message Author and Timestamp
+                        <a href="/join-club">Join the club</a> if you want to see the author and date of creation of the message
                     </div>
                 <%}%>
                 <% if(currentUser && currentUser.status === "Club member"){%>
@@ -29,7 +29,7 @@
                 <%}%>
                 <% if(currentUser){%>
                     
-                    <a class="btn createMessage-btn" href="/createMessage">Create new message</a>
+                    <a class="btn createMessage-btn" href="/createMessage">Create a message</a>
                     <%}%>
             </div>
            

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
     <link reL="stylesheet" hreF="styles.css" />
     <script src="dropdown.js" defer></script>
 </head>
@@ -12,9 +12,9 @@
 <body>
     <%- include("header")%>
         <form class="form" action="/become-admin" method="POST">
-            <label for="adminCode">Enter the admin code</label>
+            <label for="adminCode">Enter the Admin Code to access</label>
             <input type="text" id="adminCode" name="adminCode" required/>
-            <button class="btn" type="submit">Become Admin</button>
+            <button class="btn" type="submit">Become an admin</button>
         </form>
         <% if(locals.error){%>
             <p class="error-msg">

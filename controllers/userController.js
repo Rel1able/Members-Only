@@ -19,13 +19,13 @@ async function renderMainPage(req, res) {
 const validateSignUpForm = [
     body("username")
         .trim()
-        .isLength({ min: 1, max: 15 }).withMessage("Username must be between 1 and 15 characters"),
+        .isLength({ min: 1, max: 15 }).withMessage("Username must be between 1 and 15 characters long"),
     body("firstName")
         .trim()
-        .isLength({ min: 1, max: 15 }).withMessage("First name must be between 1 and 15 characters"),
+        .isLength({ min: 1, max: 15 }).withMessage("First name must be between 1 and 15 characters long"),
     body("lastName")
         .trim()
-        .isLength({ min: 1, max: 15 }).withMessage("Last name must be between 1 and 15 characters"),
+        .isLength({ min: 1, max: 15 }).withMessage("Last name must be between 1 and 15 characters long"),
     body("password")
         .isLength({ min: 5 }).withMessage("Password must be at least 5 characters long"),
     body("confPassword").custom((value, { req }) => {
@@ -36,7 +36,7 @@ const validateSignUpForm = [
             throw new Error("Confirmed password must be the same length as the password and at least 5 characters long");
         }
         if (value !== req.body.password) {
-            throw new Error("Passwords doesn't match");
+            throw new Error("Passwords don't match");
         }
         return true
     })
@@ -83,7 +83,7 @@ async function renderJoinClubForm(req, res) {
 
 
 async function joinTheClub(req, res) {
-    if (parseInt(req.body.code) === parseInt(process.env.JOIN_CLUB_ANSWER)) {
+    if ((req.body.code).toLowerCase() === process.env.JOIN_CLUB_ANSWER) {
         await db.updateStatus();
         res.redirect("/");
     } else {
@@ -103,7 +103,7 @@ async function giveAdminStatus(req, res) {
         await db.giveAdminStatus();
         res.redirect("/");
     } else {
-        const error = "Wrong code, try again!";
+        const error = "Wrong code, try again";
         res.render("become-admin-form", {
             error: error
         })
