@@ -19,7 +19,13 @@ async function renderMainPage(req, res) {
 const validateSignUpForm = [
     body("username")
         .trim()
-        .isLength({ min: 1, max: 15 }).withMessage("Username must be between 1 and 15 characters long"),
+        .isLength({ min: 1, max: 15 }).withMessage("Username must be between 1 and 15 characters long")
+        .custom(async (username) => {
+            const usersExists = await db.selectUserByName(username);
+            if (usersExists) {
+                throw new Error("Username is already taken")
+            }
+        }),
     body("firstName")
         .trim()
         .isLength({ min: 1, max: 15 }).withMessage("First name must be between 1 and 15 characters long"),
@@ -51,7 +57,7 @@ async function createUser(req, res, next) {
 
     if (!errors.isEmpty()) {
         return res.status(400).render("sign-up-form", {
-            errors: errors.array(),
+            errors: errors.array()
         })
     }
 
