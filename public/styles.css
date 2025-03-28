@@ -201,3 +201,11 @@ main{
     position: relative;
     top: 2rem;
 }
+
+.errors{
+    margin: auto;
+    
+  
+    color: rgb(226, 2, 2);
+    font-size: 2rem;
+}

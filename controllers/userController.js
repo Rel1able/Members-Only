@@ -21,8 +21,8 @@ const validateSignUpForm = [
         .trim()
         .isLength({ min: 1, max: 15 }).withMessage("Username must be between 1 and 15 characters long")
         .custom(async (username) => {
-            const usersExists = await db.selectUserByName(username);
-            if (usersExists) {
+            const users = await db.selectUserByName(username);
+            if (users.length > 0) {
                 throw new Error("Username is already taken")
             }
         }),
@@ -69,6 +69,7 @@ async function createUser(req, res, next) {
         return next(err);
     }
 }
+
 
 async function renderLogInForm(req, res) {
     res.render("log-in-form");
@@ -126,5 +127,5 @@ module.exports = {
     renderJoinClubForm,
     joinTheClub,
     renderBecomeAdminForm,
-    giveAdminStatus
+    giveAdminStatus,
 }
