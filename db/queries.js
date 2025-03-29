@@ -31,7 +31,7 @@ async function createMessage(message, userId) {
 }
 
 async function getMessageData() {
-    const { rows } = await pool.query("SELECT messages.id, messages.message, TO_CHAR(messages.created, 'dd/mm/yyyy'), users.username FROM messages INNER JOIN users ON messages.userId = users.id");
+    const { rows } = await pool.query("SELECT messages.id, messages.message, TO_CHAR(messages.created, 'dd/mm/yyyy'), users.username FROM messages INNER JOIN users ON messages.userId = users.id ORDER BY messages.created DESC");
     return rows;
 }
 
